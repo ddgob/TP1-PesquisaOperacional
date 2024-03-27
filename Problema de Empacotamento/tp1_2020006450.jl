@@ -94,7 +94,7 @@ if termination_status(model) == MOI.OPTIMAL
         for j in 1:numberOfBoxes
             # if box is used
             if value(y[j]) > 0.5  
-                println("Box ", j, " contains objects: ", [i for i in 1:numberOfObjects if value(x[i,j]) > 0.5])
+                println("Box ", j, " contains objects: ", [i-1 for i in 1:numberOfObjects if value(x[i,j]) > 0.5])
             end
         end
     end
