@@ -22,14 +22,15 @@ end
 
 # This checks if exactly one argument is passed 
 # (the path to the instance of the problem)
-if length(ARGS) != 1
-    println("Usage: julia tp1_2020006450.jl <path_to_instance_of_problem>")
+if length(ARGS) != 1 && length(ARGS) != 2
+    println("Usage: julia tp1_2020006450.jl <path_to_instance_of_problem> <optional_true_to_output_object_box_allocation>")
     exit(1)
 end
 
 # Extract the path to the instance file 
 # from the command line arguments
 instancePath = ARGS[1]
+lenArgs = length(ARGS)
 
 numberOfObjects, objectWeights = processInstance(instancePath)
 
@@ -82,18 +83,22 @@ for i in 1:numberOfObjects, j in 1:numberOfBoxes
 end
 
 
-
 optimize!(model)
 
 # Check if an optimal solution was found
 if termination_status(model) == MOI.OPTIMAL
-    println("Optimal solution found: ")
-    println("Number of boxes used: ", objective_value(model))
-    for j in 1:numberOfBoxes
-        if value(y[j]) > 0.5  # Box is used
-            println("Box ", j, " contains objects: ", [i for i in 1:numberOfObjects if value(x[i,j]) > 0.5])
+    
+    println("TP1 2020006450 = ", objective_value(model))
+
+    if lenArgs > 1 && ARGS[2] == "true"
+        for j in 1:numberOfBoxes
+            # if box is used
+            if value(y[j]) > 0.5  
+                println("Box ", j, " contains objects: ", [i for i in 1:numberOfObjects if value(x[i,j]) > 0.5])
+            end
         end
     end
+
 else
     println("Optimal solution not found. Status: ", termination_status(model))
 end
