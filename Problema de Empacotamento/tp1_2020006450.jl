@@ -20,8 +20,7 @@ function processInstance(instancePath)
 
 end
 
-# This checks if exactly one argument is passed 
-# (the path to the instance of the problem)
+# Validates the command line arguments
 if length(ARGS) != 1 && length(ARGS) != 2
     println("Usage: julia tp1_2020006450.jl <path_to_instance_of_problem> <optional_true_to_output_object_box_allocation>")
     exit(1)
