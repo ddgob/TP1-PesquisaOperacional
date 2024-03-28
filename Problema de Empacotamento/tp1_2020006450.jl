@@ -8,10 +8,12 @@ function processInstance(instancePath)
     open(instancePath, "r") do file
 
         numberOfObjects = parse(Int, split(readline(file), '\t')[2])
-
+        objectWeights = zeros(Float64, numberOfObjects)
+        i = 1
         for line in eachline(file)
             currentWeight = parse(Float64, split(line, '\t')[3])
-            push!(objectWeights, currentWeight)
+            objectWeights[i] = currentWeight
+            i += 1
         end
 
     end
