@@ -1,0 +1,82 @@
+This project was made to solve the problems described in the file enunciadoTP1.pdf
+
+How to run the code for each soluction:
+
+- General Format:
+
+--> julia ./<enter_problem_name_here>/tp1_2020006450.jl ./<enter_problem_name_here>/<enter_problem_example_folder_name_here>/instancias/<enter_instance_name_here> <enter_true_to_print_variable_results>
+
+
+############################# Problema De Empacotamento ###############################
+
+- Code to run instance 1 of Problema De Empacotamento:
+
+--> julia ./'Problema De Empacotamento'/tp1_2020006450.jl ./'Problema De Empacotamento'/exemplosEmpacotamento/instancias/INST1_PB1.txt true
+
+- Code to run instance 2 of Problema De Empacotamento:
+
+--> julia ./'Problema De Empacotamento'/tp1_2020006450.jl ./'Problema De Empacotamento'/exemplosEmpacotamento/instancias/INST2_PB1.txt true
+
+- Code to run instance 3 of Problema De Empacotamento:
+
+--> julia ./'Problema De Empacotamento'/tp1_2020006450.jl ./'Problema De Empacotamento'/exemplosEmpacotamento/instancias/INST3_PB1.txt true
+
+
+############################## Problema de Clique Maxima ##############################
+
+- Code to run instance 1 of Problema de Clique Maxima:
+
+--> julia ./'Problema de Clique Maxima'/tp1_2020006450.jl ./'Problema de Clique Maxima'/exemplosCliqueMaxima/instancias/INST1_PB2.txt true
+
+- Code to run instance 2 of Problema de Clique Maxima:
+
+--> julia ./'Problema de Clique Maxima'/tp1_2020006450.jl ./'Problema de Clique Maxima'/exemplosCliqueMaxima/instancias/INST2_PB2.txt true
+
+- Code to run instance 3 of Problema de Clique Maxima:
+
+--> julia ./'Problema de Clique Maxima'/tp1_2020006450.jl ./'Problema de Clique Maxima'/exemplosCliqueMaxima/instancias/INST3_PB2.txt true
+
+
+############################# Problema de LotSizing com Atrasos ###############################
+
+- Code to run instance 1 of Problema de LotSizing com Atrasos:
+
+--> julia ./'Problema de LotSizing com Atrasos'/tp1_2020006450.jl ./'Problema de LotSizing com Atrasos'/exemplosLotSizing/instancias/INST1_PB3.txt true
+
+- Code to run instance 2 of Problema de LotSizing com Atrasos:
+
+--> julia ./'Problema de LotSizing com Atrasos'/tp1_2020006450.jl ./'Problema de LotSizing com Atrasos'/exemplosLotSizing/instancias/INST2_PB3.txt true
+
+- Code to run instance 3 of Problema de LotSizing com Atrasos:
+
+--> julia ./'Problema de LotSizing com Atrasos'/tp1_2020006450.jl ./'Problema de LotSizing com Atrasos'/exemplosLotSizing/instancias/INST3_PB3.txt true
+
+
+############################## Problema de Coloração ##############################
+
+- Code to run instance 1 of Problema de Coloração:
+
+--> julia ./'Problema de Coloração'/tp1_2020006450.jl ./'Problema de Coloração'/exemplosColoracao/instancias/INST1_PB4.txt true
+
+- Code to run instance 2 of Problema de Coloração:
+
+--> julia ./'Problema de Coloração'/tp1_2020006450.jl ./'Problema de Coloração'/exemplosColoracao/instancias/INST2_PB4.txt true
+
+- Code to run instance 3 of Problema de Coloração:
+
+--> julia ./'Problema de Coloração'/tp1_2020006450.jl ./'Problema de Coloração'/exemplosColoracao/instancias/INST3_PB4.txt true
+
+
+############################## Problema de A-Coloração ##############################
+
+- Code to run instance 1 of Problema de A-Coloração:
+
+--> julia ./'Problema de A-Coloração'/tp1_2020006450.jl ./'Problema de A-Coloração'/exemplosA-coloracao/instancias/INST1_PB5.txt true
+
+- Code to run instance 2 of Problema de A-Coloração:
+
+--> julia ./'Problema de A-Coloração'/tp1_2020006450.jl ./'Problema de A-Coloração'/exemplosA-coloracao/instancias/INST1_PB5.txt true
+
+- Code to run instance 3 of Problema de A-Coloração:
+
+--> julia ./'Problema de A-Coloração'/tp1_2020006450.jl ./'Problema de A-Coloração'/exemplosA-coloracao/instancias/INST1_PB5.txt true
