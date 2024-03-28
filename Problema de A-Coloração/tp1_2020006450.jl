@@ -52,9 +52,16 @@ numberOfVertices, graph = processInstance(instancePath)
 
 printGraph(graph)
 
-"""# The problem:
+# The problem:
 # We have a graph that contains numberOfVertices vertices
 # We want to color each vertice of the graph in a way that all the neighbors of that vertice have a different color
+# We also want to guarantee that, for all of the neighbors of all of the vertices colored with a color k, there will be at least one neighbor with each one of the other colors
+# In other words:
+#   a) Given the set Ck of vertices that are colored with the color k
+#   b) Given the set notCk of vertices that are not colored with the color k
+#   c) Given the set Cq of vertices that are colored with the color q
+#   d) Given that q != k
+#   e) It holds true that the intersection between notCk and Cq is not empty
 # We want to minimize the number of colors used to color the graph
 
 model = Model(HiGHS.Optimizer)
@@ -110,6 +117,9 @@ for i in 1:numberOfVertices
     end
 end
 
+# TODO: add constraint intersection between notCk and Cq is not empty (for colors k != q)
+
+
 
 optimize!(model)
 
@@ -130,10 +140,10 @@ if termination_status(model) == MOI.OPTIMAL
             end
             lenArray = length(tempArray)
             if lenArray > 0
-                print("The vertices colored with k were : ")
+                print("The vertices colored with $k were : ")
                 for j in 1:lenArray
                     tempValue = tempArray[j]
-                    print("tempValue   ")
+                    print("$tempValue   ")
                 end
                 println()
             end
@@ -142,4 +152,4 @@ if termination_status(model) == MOI.OPTIMAL
 
 else
     println("Optimal solution not found. Status: ", termination_status(model))
-end"""
+end
