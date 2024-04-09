@@ -5,17 +5,22 @@ function processInstance(instancePath)
     numberOfObjects = nothing
     objectWeights = Float64[]
 
-    open(instancePath, "r") do file
+    try
+        open(instancePath, "r") do file
 
-        numberOfObjects = parse(Int, split(readline(file), '\t')[2])
-        objectWeights = zeros(Float64, numberOfObjects)
-        i = 1
-        for line in eachline(file)
-            currentWeight = parse(Float64, split(line, '\t')[3])
-            objectWeights[i] = currentWeight
-            i += 1
+            numberOfObjects = parse(Int, split(readline(file), '\t')[2])
+            objectWeights = zeros(Float64, numberOfObjects)
+            i = 1
+            for line in eachline(file)
+                currentWeight = parse(Float64, split(line, '\t')[3])
+                objectWeights[i] = currentWeight
+                i += 1
+            end
+
         end
-
+    catch err
+        println("Error opening or processing file:", err)
+        exit(1)
     end
 
     return numberOfObjects, objectWeights

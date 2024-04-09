@@ -20,17 +20,22 @@ function processInstance(instancePath)
     numberOfVertices = nothing
     graph = nothing
 
-    open(instancePath, "r") do file
+    try
+        open(instancePath, "r") do file
 
-        numberOfVertices = parse(Int, split(readline(file), '\t')[2])
-        graph = zeros(Int, numberOfVertices, numberOfVertices)
+            numberOfVertices = parse(Int, split(readline(file), '\t')[2])
+            graph = zeros(Int, numberOfVertices, numberOfVertices)
 
-        for line in eachline(file)
-            origin = parse(Int, split(line, '\t')[2])
-            destination = parse(Int, split(line, '\t')[3])
-            graph[origin, destination] = 1
+            for line in eachline(file)
+                origin = parse(Int, split(line, '\t')[2])
+                destination = parse(Int, split(line, '\t')[3])
+                graph[origin, destination] = 1
+            end
+
         end
-
+    catch err
+        println("Error opening or processing file:", err)
+        exit(1)
     end
 
     return numberOfVertices, graph
@@ -50,7 +55,7 @@ lenArgs = length(ARGS)
 
 numberOfVertices, graph = processInstance(instancePath)
 
-printGraph(graph)
+# printGraph(graph)
 
 # The problem:
 # We have a graph that contains numberOfVertices vertices

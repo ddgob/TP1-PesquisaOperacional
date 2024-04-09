@@ -24,35 +24,40 @@ function processInstance(instancePath)
     periodStockCost = Float64[]
     periodLateFee = Float64[]
 
-    open(instancePath, "r") do file
+    try
+        open(instancePath, "r") do file
 
-        numberOfPeriods = parse(Int, split(readline(file), '\t')[2])
-        periodProductionCost = zeros(Float64, numberOfPeriods)
-        periodDemand = zeros(Float64, numberOfPeriods)
-        periodStockCost = zeros(Float64, numberOfPeriods)
-        periodLateFee = zeros(Float64, numberOfPeriods)
-        for line in eachline(file)
+            numberOfPeriods = parse(Int, split(readline(file), '\t')[2])
+            periodProductionCost = zeros(Float64, numberOfPeriods)
+            periodDemand = zeros(Float64, numberOfPeriods)
+            periodStockCost = zeros(Float64, numberOfPeriods)
+            periodLateFee = zeros(Float64, numberOfPeriods)
+            for line in eachline(file)
 
-            splitLine = split(line, '\t')
-            id = splitLine[1]
-            num = parse(Int, splitLine[2])
-            value = parse(Float64, splitLine[3])
+                splitLine = split(line, '\t')
+                id = splitLine[1]
+                num = parse(Int, splitLine[2])
+                value = parse(Float64, splitLine[3])
 
-            if id == "c"
-                periodProductionCost[num] = value
-            elseif id == "d"
-                periodDemand[num] = value
-            elseif id == "s"
-                periodStockCost[num] = value
-            elseif id == "p"
-                periodLateFee[num] = value
-            else
-                println("Error reading input file")
-                exit(1)
+                if id == "c"
+                    periodProductionCost[num] = value
+                elseif id == "d"
+                    periodDemand[num] = value
+                elseif id == "s"
+                    periodStockCost[num] = value
+                elseif id == "p"
+                    periodLateFee[num] = value
+                else
+                    println("Error reading input file")
+                    exit(1)
+                end
+                
             end
-            
-        end
 
+        end
+    catch err
+        println("Error opening or processing file:", err)
+        exit(1)
     end
 
     return numberOfPeriods, periodProductionCost, periodDemand, periodStockCost, periodLateFee
